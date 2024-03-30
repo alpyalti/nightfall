@@ -914,6 +914,49 @@ LightProbeGroup:
   - {x: 7.1518564, y: 2.7763042, z: -11.2319765}
   - {x: 8.993203, y: 2.3566551, z: -8.796325}
   m_Dering: 1
+--- !u!1 &902491601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 70aafe2d1e7d041b58b1ba5719b56640,
+    type: 3}
+  m_PrefabInstance: {fileID: 1835158866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &902491604
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902491601}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.026299313
+  m_Height: 0.0024829144
+  m_Direction: 1
+  m_Center: {x: -0.0044868723, y: -0.000000014411282, z: 0.009100303}
+--- !u!114 &902491605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902491601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d148c872850fe429d43f098e7581e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axeCollider: {fileID: 0}
+  attackKey: 323
 --- !u!1 &922571399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
@@ -1781,7 +1824,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 70aafe2d1e7d041b58b1ba5719b56640,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 902491605}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 70aafe2d1e7d041b58b1ba5719b56640,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 902491604}
   m_SourcePrefab: {fileID: 100100000, guid: 70aafe2d1e7d041b58b1ba5719b56640, type: 3}
 --- !u!1 &1930537604
 GameObject:
