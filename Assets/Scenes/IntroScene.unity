@@ -148,9 +148,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457475778}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 084c3f92afb9ea64091c404ff576e4bf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 553934628}
   - component: {fileID: 553934627}
   - component: {fileID: 553934626}
+  - component: {fileID: 553934630}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -282,6 +283,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &553934630
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553934625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 084c3f92afb9ea64091c404ff576e4bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &657282361
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +315,6 @@ GameObject:
   - component: {fileID: 657282362}
   - component: {fileID: 657282365}
   - component: {fileID: 657282364}
-  - component: {fileID: 657282363}
   m_Layer: 5
   m_Name: Text (Legacy) (1)
   m_TagString: Untagged
@@ -320,27 +341,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0000076293945, y: 0.0000023841858}
   m_SizeDelta: {x: 708.1116, y: 326.004}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &657282363
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657282361}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: beb8bb9ed4c033c44ab3036156413128, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &657282364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,8 +374,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: In the heart of a whispering forest, a grandfather and his grandson is
-    tested when an unseen force strikes in the dark.
+  m_Text: As the night falls, the quest for reunion becomes a journey through shadows
+    and mysteries untold.
 --- !u!222 &657282365
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -470,7 +470,6 @@ GameObject:
   - component: {fileID: 1173407743}
   - component: {fileID: 1173407745}
   - component: {fileID: 1173407744}
-  - component: {fileID: 1173407746}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -540,27 +539,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173407742}
   m_CullTransparentMesh: 1
---- !u!95 &1173407746
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173407742}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8f4c3922329fbea42bc4d52c891d1076, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1269885836
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +736,6 @@ GameObject:
   - component: {fileID: 1791336715}
   - component: {fileID: 1791336717}
   - component: {fileID: 1791336716}
-  - component: {fileID: 1791336718}
   m_Layer: 5
   m_Name: Text (Legacy) (3)
   m_TagString: Untagged
@@ -827,27 +804,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791336714}
   m_CullTransparentMesh: 1
---- !u!95 &1791336718
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791336714}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4ab57303d0ff63c4e92eed0b18e4bb65, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1949826928
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,7 +815,6 @@ GameObject:
   - component: {fileID: 1949826929}
   - component: {fileID: 1949826932}
   - component: {fileID: 1949826931}
-  - component: {fileID: 1949826930}
   m_Layer: 5
   m_Name: Text (Legacy) (2)
   m_TagString: Untagged
@@ -886,27 +841,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0000076293945, y: 0.0000023841858}
   m_SizeDelta: {x: 708.1116, y: 326.004}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1949826930
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949826928}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a4a4f14aa60739149a559d9f83a6fdc0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1949826931
 MonoBehaviour:
   m_ObjectHideFlags: 0
