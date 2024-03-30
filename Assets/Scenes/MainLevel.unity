@@ -545,7 +545,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1047866802}
   - {fileID: 1999303462}
-  buildingTransform: {fileID: 0}
+  buildingTransform: {fileID: 484400632303150886}
   enemiesPerSpawnPoint: 5
   waveCooldownText: {fileID: 2100638102}
   wavesCompletedText: {fileID: 519782236}
@@ -2028,8 +2028,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.33156404, z: 1}
-  m_Center: {x: 0, y: -0.08850938, z: 0}
+  m_Size: {x: 2, y: 0.5, z: 2}
+  m_Center: {x: -1.0742552, y: -0.08850938, z: 0.7511757}
 --- !u!114 &1739431047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8622,27 +8622,6 @@ Transform:
   - {fileID: 8044669281523478658}
   m_Father: {fileID: 608321762169839860}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3009132113480214350
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4928411755977543068}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &3034619528079244402
 Transform:
   m_ObjectHideFlags: 0
@@ -9753,7 +9732,7 @@ GameObject:
   - component: {fileID: 886183266195372477}
   - component: {fileID: 7115598531024682806}
   - component: {fileID: 8660931240378708224}
-  - component: {fileID: 3009132113480214350}
+  - component: {fileID: 8660931240378708225}
   - component: {fileID: 4957034852823683966}
   m_Layer: 0
   m_Name: Building
@@ -10845,7 +10824,7 @@ PrefabInstance:
         type: 3}
       propertyPath: building
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 484400632303150886}
     - target: {fileID: 4455583332849565325, guid: 4b75ab0a0ac014c1f800297229d87a48,
         type: 3}
       propertyPath: attackRange
@@ -11695,6 +11674,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1000
+--- !u!65 &8660931240378708225
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928411755977543068}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 1.9127313, z: 0.8}
+  m_Center: {x: 0, y: 0.7936343, z: 0}
 --- !u!1 &8670540289393077159
 GameObject:
   m_ObjectHideFlags: 0
