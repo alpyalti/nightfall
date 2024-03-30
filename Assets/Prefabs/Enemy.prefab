@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  enemyRenderer: {fileID: 5416757263276348296}
+  flashDuration: 0.1
 --- !u!114 &4455583332849565325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,3 +275,9 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!137 &5416757263276348296 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1206874426333947015, guid: 6cdb36dbaf1e248b3b764d68d28a2805,
+    type: 3}
+  m_PrefabInstance: {fileID: 2624580515013200113}
+  m_PrefabAsset: {fileID: 0}
