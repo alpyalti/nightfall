@@ -3622,7 +3622,7 @@ MonoBehaviour:
   - {fileID: 1657592125}
   - {fileID: 1512143118}
   buildingTransform: {fileID: 4099201911033948011}
-  enemiesPerSpawnPoint: 4
+  enemiesPerSpawnPoint: 3
   waveCooldownText: {fileID: 2100638102}
   wavesCompletedText: {fileID: 519782236}
   invisibleWalls: {fileID: 1820608006}
@@ -20329,7 +20329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebcfa2615cdd9498482cf7f720090a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100000
 --- !u!4 &6841740427565263016
 Transform:
   m_ObjectHideFlags: 0

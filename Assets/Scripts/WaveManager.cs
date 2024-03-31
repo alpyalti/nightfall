@@ -7,7 +7,7 @@ public class WaveManager : MonoBehaviour
     public GameObject enemyPrefab;
     public Transform[] spawnPoints;
     public Transform buildingTransform; // Reference to the building Transform
-    public int enemiesPerSpawnPoint = 5;
+    public int enemiesPerSpawnPoint = 2;
     public Text waveCooldownText; // Text for displaying the countdown to the next wave
     public Text wavesCompletedText; // Text for displaying the number of waves completed
     private int currentWave = 0; // Start at 0 to indicate no waves completed yet
@@ -24,7 +24,7 @@ public class WaveManager : MonoBehaviour
     {
         Debug.Log("Starting Waves..."); // This confirms waves are about to start
         WavesEnabled = true;
-        wavesCompletedText.text = "Waves Completed: 0/5";
+        wavesCompletedText.text = "Waves Completed: 0/3";
         invisibleWalls.SetActive(true);
         StartCoroutine(StartNextWaveWithCooldown());
     }
@@ -38,14 +38,14 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        wavesCompletedText.text = "Waves Completed: " + currentWave + "/5";
+        wavesCompletedText.text = "Waves Completed: " + currentWave + "/3";
         //StartCoroutine(StartNextWaveWithCooldown());
     }
 
     void Update()
     {
         // Check for 'P' key to skip cooldown
-        if (Input.GetKeyDown(KeyCode.P) && !isWaveInProgress && currentWave < 5)
+        if (Input.GetKeyDown(KeyCode.P) && !isWaveInProgress && currentWave < 3)
         {
             StopAllCoroutines();
             waveCooldownText.gameObject.SetActive(false); // Hide the cooldown text
@@ -89,9 +89,9 @@ public class WaveManager : MonoBehaviour
 
         // Wait for all enemies to be defeated before considering the wave completed
         yield return new WaitUntil(() => activeEnemies == 0);
-        wavesCompletedText.text = "Waves Completed: " + currentWave + "/5";
+        wavesCompletedText.text = "Waves Completed: " + currentWave + "/3";
 
-        if (currentWave >= 5)
+        if (currentWave >= 3)
         {
             // Handle all waves completed scenario
             wavesCompletedText.text = "All Waves Completed!";
