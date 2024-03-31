@@ -50,7 +50,7 @@ public class EnemyAI : MonoBehaviour
         // Attack logic here (e.g., reduce building health)
         Debug.Log("Attacking the building with " + attackDamage + " damage.");
         // Simulate attacking the building
-        // building.GetComponent<BuildingHealth>().TakeDamage(attackDamage); // Uncomment and use if you have a BuildingHealth script
+        building.GetComponent<BuildingHealth>().TakeDamage(attackDamage); // Uncomment and use if you have a BuildingHealth script
 
         yield return new WaitForSeconds(attackDelay);
 

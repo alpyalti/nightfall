@@ -119,7 +119,7 @@ MonoBehaviour:
   moveSpeed: 1
   attackRange: 2
   attackDelay: 1
-  attackDamage: 100
+  attackDamage: 50
 --- !u!54 &5163062584968571345
 Rigidbody:
   m_ObjectHideFlags: 0
