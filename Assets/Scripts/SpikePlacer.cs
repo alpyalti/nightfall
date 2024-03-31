@@ -1,18 +1,21 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpikePlacer : MonoBehaviour
 {
     public GameObject spikePrefab; // Assign the actual spike prefab in the Inspector
     public GameObject spikeGhostPrefab; // Assign the ghost (preview) spike prefab in the Inspector
     public int maxSpikes = 5; // Maximum number of spikes the player can place
+    public Text spikesLeftText;
 
     private GameObject currentGhost; // Current ghost instance for previewing placement
     private int currentSpikes; // Current number of spikes placed
 
     void Update()
     {
-        // Toggle placement mode with '1'
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        // Toggle placement mode with 'X'
+        if (Input.GetKeyDown(KeyCode.X) && currentSpikes < maxSpikes)
         {
             if (currentGhost == null && currentSpikes < maxSpikes)
             {
@@ -25,6 +28,7 @@ public class SpikePlacer : MonoBehaviour
                 Instantiate(spikePrefab, currentGhost.transform.position, Quaternion.Euler(-90f, 0f, 0f));
                 Destroy(currentGhost); // Remove the ghost preview
                 currentSpikes++; // Increment the spike count
+                UpdateSpikesLeftText();
             }
         }
 
@@ -39,6 +43,12 @@ public class SpikePlacer : MonoBehaviour
         {
             UpdateGhostPosition();
         }
+    }
+
+    void UpdateSpikesLeftText()
+    {
+    int spikesLeft = maxSpikes - currentSpikes;
+    spikesLeftText.text = "Spike (X): " + spikesLeft;
     }
 
     void UpdateGhostPosition()
