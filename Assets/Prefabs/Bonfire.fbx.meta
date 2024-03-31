@@ -1,15 +1,9 @@
 fileFormatVersion: 2
-guid: 6e57d30716fdc4052900d0aa319007fd
+guid: 064b92c08522b4132a211f1664b4d1ff
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OPM0041
-    second: {fileID: 3986188387995331715, guid: 628e6442b7333463c990e66e0dfb7ce1,
-      type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
