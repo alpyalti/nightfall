@@ -95,6 +95,7 @@ public class WaveManager : MonoBehaviour
         {
             // Handle all waves completed scenario
             wavesCompletedText.text = "All Waves Completed!";
+            invisibleWalls.SetActive(false);
             yield return new WaitForSeconds(5); // Keep the message for 5 seconds
             wavesCompletedText.gameObject.SetActive(false); // Optionally hide the text after showing the message
         }
