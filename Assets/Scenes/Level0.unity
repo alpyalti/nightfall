@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.7
   m_CustomReflection: {fileID: 8900000, guid: 619e305f5165a9946b7f72464e44ca4a, type: 3}
   m_Sun: {fileID: 2114283754330233425}
-  m_IndirectSpecularColor: {r: 0.0024463835, g: 0.010519944, b: 0.025653321, a: 0.7}
+  m_IndirectSpecularColor: {r: 0.0024463865, g: 0.010519948, b: 0.025653334, a: 0.7}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12670,7 +12670,9 @@ MonoBehaviour:
   spikeGhostPrefab: {fileID: 3718514839734221997, guid: 298de7c3194c74dfbbfefd5678caa45f,
     type: 3}
   maxSpikes: 3
-  spikesLeftText: {fileID: 5649175959401970805}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &3476358901805587719
 GameObject:
   m_ObjectHideFlags: 0
@@ -13329,7 +13331,7 @@ MonoBehaviour:
   GroundedRadius: 0.28
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
   CinemachineCameraTarget: {fileID: 8338988565591873048}
   TopClamp: 70
   BottomClamp: -30
@@ -15550,6 +15552,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345070700331616361, guid: 09aade0ecefd01e4b8f7661acf64f5c2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8680289381081499115, guid: 09aade0ecefd01e4b8f7661acf64f5c2,
         type: 3}

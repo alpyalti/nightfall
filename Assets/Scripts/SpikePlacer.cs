@@ -4,60 +4,133 @@ using UnityEngine.UI;
 
 public class SpikePlacer : MonoBehaviour
 {
-    public GameObject spikePrefab; // Assign the actual spike prefab in the Inspector
-    public GameObject spikeGhostPrefab; // Assign the ghost (preview) spike prefab in the Inspector
-    public int maxSpikes = 5; // Maximum number of spikes the player can place
-    public Text spikesLeftText;
+    public GameObject spikePrefab;
+    public GameObject spikeGhostPrefab;
+    public int maxSpikes = 5;
+    public LayerMask groundLayer; // Make sure this matches your ground layer
+    public Text spikesLeftText; // UI Text to display the number of spikes left
 
-    private GameObject currentGhost; // Current ghost instance for previewing placement
-    private int currentSpikes; // Current number of spikes placed
+    private GameObject currentGhost;
+    private int currentSpikes;
+    private Material ghostMaterial;
+    private bool isGhostColliding = false; // Flag for ghost spike collision
+
+    private void Start()
+    {
+        UpdateSpikesLeftText(); // Initial update of the UI text
+    }
 
     void Update()
     {
-        // Toggle placement mode with 'X'
-        if (Input.GetKeyDown(KeyCode.X) && currentSpikes < maxSpikes)
+        // Toggle ghost spike with 'X'
+        if (Input.GetKeyDown(KeyCode.X))
         {
             if (currentGhost == null && currentSpikes < maxSpikes)
             {
-                // Instantiate the ghost spike at the player's position with a rotation of -90 degrees on the X-axis
                 currentGhost = Instantiate(spikeGhostPrefab, transform.position, Quaternion.Euler(-90f, 0f, 0f));
+                ghostMaterial = currentGhost.GetComponent<Renderer>().material;
+                // Add a Collider component if your ghost prefab doesn't have one
+                if (!currentGhost.GetComponent<Collider>())
+                {
+                    currentGhost.AddComponent<BoxCollider>();
+                }
+                currentGhost.GetComponent<Collider>().isTrigger = true; // Ensure the Collider is set as a trigger
             }
-            else if (currentGhost != null)
+        }
+
+        if (currentGhost != null)
+        {
+            UpdateGhostPosition();
+            // Place the spike with left mouse click
+            if (Input.GetMouseButtonDown(0) && IsPlacementValid())
             {
-                // Place the spike at the ghost's position with a rotation of -90 degrees on the X-axis
-                Instantiate(spikePrefab, currentGhost.transform.position, Quaternion.Euler(-90f, 0f, 0f));
-                Destroy(currentGhost); // Remove the ghost preview
-                currentSpikes++; // Increment the spike count
-                UpdateSpikesLeftText();
+                PlaceSpike();
             }
         }
 
         // Cancel placement with right mouse click
         if (Input.GetMouseButtonDown(1) && currentGhost != null)
         {
-            Destroy(currentGhost); // Destroy the ghost preview
+            Destroy(currentGhost);
         }
+    }
 
-        // Move the ghost to follow the cursor or player aim
-        if (currentGhost != null)
+   void UpdateGhostPosition()
+ {
+    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    RaycastHit hit;
+
+    // First, check if the ghost spike hits the ground
+    if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+    {
+        // Then, perform an additional check to see if the ghost spike is overlapping with any non-placeable objects
+        // Adjust the layerMask to include layers of objects that should block spike placement
+        LayerMask nonPlaceableLayers = LayerMask.GetMask("NonPlaceable");
+        bool isOverlappingNonPlaceable = Physics.CheckSphere(hit.point, 0.5f, nonPlaceableLayers);
+
+        // If the ghost spike is not overlapping with non-placeable objects, it's a valid placement position
+        if (!isOverlappingNonPlaceable)
         {
-            UpdateGhostPosition();
+            currentGhost.transform.position = hit.point;
+            SetGhostColor(Color.green);
+            isGhostColliding = false;
         }
+        else
+        {
+            SetGhostColor(Color.red);
+            isGhostColliding = true;
+        }
+    }
+    else
+    {
+        SetGhostColor(Color.red);
+        isGhostColliding = true;
+    }
+ }
+
+
+    bool IsPlacementValid()
+    {
+        // Ensure the placement is valid (green color) and the ghost is not colliding with other objects
+        return ghostMaterial.color == Color.green && !isGhostColliding;
+    }
+
+    void SetGhostColor(Color color)
+    {
+        if (ghostMaterial != null)
+        {
+            ghostMaterial.color = color;
+        }
+    }
+
+    void PlaceSpike()
+    {
+        Instantiate(spikePrefab, currentGhost.transform.position, Quaternion.Euler(-90f, 0f, 0f));
+        Destroy(currentGhost); // Remove the ghost preview
+        currentSpikes++; // Increment the spike count
+        UpdateSpikesLeftText(); // Update the UI text to reflect the new number of spikes left
     }
 
     void UpdateSpikesLeftText()
     {
-    int spikesLeft = maxSpikes - currentSpikes;
-    spikesLeftText.text = "Spike (X): " + spikesLeft;
+        spikesLeftText.text = "Spikes Left: " + (maxSpikes - currentSpikes); // Display the remaining spikes
     }
 
-    void UpdateGhostPosition()
+    private void OnTriggerEnter(Collider other)
     {
-        // Raycast from the camera to update the ghost spike's position
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        // Set the flag true if the ghost spike enters a collider that is not tagged as "Ground"
+        if (!other.CompareTag("Ground"))
         {
-            currentGhost.transform.position = hit.point; // Move the ghost to the hit point
+            isGhostColliding = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // Reset the flag when the ghost spike exits a collider
+        if (!other.CompareTag("Ground"))
+        {
+            isGhostColliding = false;
         }
     }
 }
