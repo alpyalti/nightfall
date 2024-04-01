@@ -2707,9 +2707,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d148c872850fe429d43f098e7581e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axeCollider: {fileID: 0}
+  axeCollider: {fileID: 902491604}
   attackKey: 323
-  damageAmount: 10
+  damageAmount: 15
+  attackDelay: 1
+  attackCooldown: 1
 --- !u!1 &922571399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,

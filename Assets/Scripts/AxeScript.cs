@@ -1,54 +1,63 @@
 using UnityEngine;
+using System.Collections;
 
 public class AxeScript : MonoBehaviour
 {
-    public Collider axeCollider; // Assign this in the Inspector
-    public KeyCode attackKey = KeyCode.Mouse0; // Default to left mouse button
-    public float damageAmount = 10f; // The amount of damage the axe does to an enemy
+    public Collider axeCollider;
+    public KeyCode attackKey = KeyCode.Mouse0;
+    public float damageAmount = 10f;
+    public float attackDelay = 0.5f; // Delay before the damage is dealt
+    public float attackCooldown = 1.0f; // Cooldown period after the attack
+
+    private bool isReadyToAttack = true; // Indicates if the player can initiate an attack
 
     void Start()
     {
-        // Ensure the collider is disabled at the start
-        if(axeCollider != null)
+        if (axeCollider != null)
             axeCollider.enabled = false;
     }
 
     void Update()
     {
-        // Detect attack input
-        if (Input.GetKeyDown(attackKey))
+        if (Input.GetKeyDown(attackKey) && isReadyToAttack)
         {
-            StartAttack();
-        }
-        else if (Input.GetKeyUp(attackKey))
-        {
-            EndAttack();
+            StartCoroutine(PerformAttack());
         }
     }
 
-    void StartAttack()
+    IEnumerator PerformAttack()
     {
-        // Enable the axe's collider to detect hits
-        if(axeCollider != null)
+        isReadyToAttack = false; // Player starts the attack, disable further attacks
+
+        // Optionally enable the collider immediately if you want collision detection during the wind-up
+        if (axeCollider != null)
             axeCollider.enabled = true;
-    }
 
-    void EndAttack()
-    {
-        // Disable the collider after the attack
-        if(axeCollider != null)
+        yield return new WaitForSeconds(attackDelay); // Wait for the attack delay
+
+        // Perform the attack logic here. Damage is dealt after the delay.
+
+        // Disable the collider after the delay if it was enabled at the start
+        if (axeCollider != null)
             axeCollider.enabled = false;
+
+        yield return new WaitForSeconds(attackCooldown - attackDelay); // Wait for the cooldown period after the attack
+
+        isReadyToAttack = true; // Player can attack again after the cooldown
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the collider belongs to an enemy
-        if (other.CompareTag("Enemy")) // Ensure your enemy GameObjects are tagged as "Enemy"
+        // Damage is dealt during the delay period, so check for enemy collision here
+        if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Hit an enemy!");
+            Debug.Log("Hit an enemy with the axe!");
 
-            // Call a method to damage the enemy here
-            other.GetComponent<EnemyHealth>().TakeDamage(damageAmount);
+            EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damageAmount);
+            }
         }
     }
 }
