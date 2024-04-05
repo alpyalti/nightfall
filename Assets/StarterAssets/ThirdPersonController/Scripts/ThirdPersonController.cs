@@ -161,14 +161,14 @@ namespace StarterAssets
             Move();
 
             
-        #if ENABLE_INPUT_SYSTEM
-            if (Mouse.current.leftButton.isPressed)
-            {
-                _animator.SetBool("hit", true);
-            }
-            else
-                _animator.SetBool("hit", false);
-        #endif
+        // #if ENABLE_INPUT_SYSTEM
+        //     if (Mouse.current.leftButton.isPressed)
+        //     {
+        //         _animator.SetBool("hit", true);
+        //     }
+        //     else
+        //         _animator.SetBool("hit", false);
+        // #endif
         }
 
         private void LateUpdate()
