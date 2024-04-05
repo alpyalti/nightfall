@@ -18,9 +18,9 @@ public class PlayerAttackController : MonoBehaviour
     void Update()
     {
  
-        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("hit"))
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("hit1"))
         {
-            anim.SetBool("hit", false);
+            anim.SetBool("hit1", false);
         }
         if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("hit2"))
         {
@@ -57,13 +57,13 @@ public class PlayerAttackController : MonoBehaviour
         noOfClicks++;
         if (noOfClicks == 1)
         {
-            anim.SetBool("hit", true);
+            anim.SetBool("hit1", true);
         }
         noOfClicks = Mathf.Clamp(noOfClicks, 0, 3);
  
-        if (noOfClicks >= 2 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("hit"))
+        if (noOfClicks >= 2 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("hit1"))
         {
-            anim.SetBool("hit", false);
+            anim.SetBool("hit1", false);
             anim.SetBool("hit2", true);
         }
         if (noOfClicks >= 3 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("hit2"))
