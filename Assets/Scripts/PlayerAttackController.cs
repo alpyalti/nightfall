@@ -15,4 +15,10 @@ public class PlayerAttackController : MonoBehaviour
         if (axeScript != null)
             axeScript.DisableAxeCollider();
     }
+
+    public void PlayAttackSound()
+    {
+        if (axeScript != null)
+            axeScript.PlayAttackSound();
+    }
 }

@@ -17,7 +17,7 @@ public class AxeScript : MonoBehaviour
     public void EnableAxeCollider()
     {
         axeCollider.enabled = true;
-        PlayAttackSound();
+        
     }
 
     public void DisableAxeCollider()
@@ -25,13 +25,14 @@ public class AxeScript : MonoBehaviour
         axeCollider.enabled = false;
     }
 
-    private void PlayAttackSound()
+    public void PlayAttackSound()
+ {
+    if (attackSound != null && audioSource != null)
     {
-        if (attackSound != null)
-        {
-            audioSource.PlayOneShot(attackSound);
-        }
+        audioSource.PlayOneShot(attackSound);
     }
+ }
+
 
     private void OnTriggerEnter(Collider other)
     {
